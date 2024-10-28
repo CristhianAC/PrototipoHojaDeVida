@@ -1,5 +1,46 @@
-<nav>
-  <div>
-    
+<nav class="w-full bg-neutral h-44 flex justify-between absolute shadow-xl">
+  <div class="w-54 flex h-auto justify-between gap-4 p-12 items-center">
+    <mat-form-field class="">
+      <mat-label>Estudiante</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="nombre | CIU | usuario"
+        [formControl]="valueForm"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="absolute inset-0 flex h-auto justify-center items-center pointer-events-none">
+    <img
+      ngSrc="/images/LOGO1.png"
+      alt=""
+      width="100"
+      height="94"
+      priority
+      class="w-[21rem] h-18 animate-zoom-in"
+    />
+  </div>
+  <div class="flex h-auto justify-between gap-4 p-12 items-center">
+    <mat-form-field class="w-44">
+      <mat-label>Fecha inicial</mat-label>
+      <input matInput [matDatepicker]="picker2" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker2"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="w-44">
+      <mat-label>Fecha final</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </div>
 </nav>
