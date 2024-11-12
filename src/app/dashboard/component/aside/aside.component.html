@@ -1,5 +1,10 @@
-<app-button class=" absolute top-12"></app-button>
-<aside
-  class="h-[100vh]  fixed bg-neutral w-[17rem] flex justify-center transition-all duration-300 ease-in-out"
-  [ngClass]="{'left-0': toggleService.opened(), 'left-[-24rem]': !toggleService.opened()}"
-></aside>
+<aside class="w-[24rem] bg-neutral h-full">
+  <section class="container max-h-40">
+    <div data-swapy-slot="6" class="slot">
+      <div data-swapy-item="a" class="bg-primary/40 item">Test 1</div>
+    </div>
+    <div data-swapy-slot="5" class="slot">
+      <div data-swapy-item="b" class="item bg-primary/80">Test 2</div>
+    </div>
+  </section>
+</aside>

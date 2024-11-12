@@ -1,18 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+
 import { AsideService } from './aside.service';
-import { ButtonComponent } from './button/button.component';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-aside',
   standalone: true,
-  imports: [ButtonComponent, NgClass],
+  imports: [],
   templateUrl: './aside.component.html',
   styleUrl: './aside.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AsideComponent {
   toggleService = inject(AsideService);
-
 }
