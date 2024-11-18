@@ -45,7 +45,9 @@ body {
 
 .second-row {
   display: flex;
-  gap: 5px;
+  gap: 20px;
+/*   height: 100px; */
+  height: 33%;
 }
 
 .slot {
@@ -60,10 +62,6 @@ body {
 
 .slot.b {
   flex: 2;
-}
-
-.second-row {
-  height: 100px;
 }
 
 .slot.d {

@@ -29,6 +29,7 @@ export type ChartOptions = {
   stroke: ApexStroke;
   title: ApexTitleSubtitle;
 };
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -44,6 +45,9 @@ export class DashboardComponent {
 
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+
+  // Variable to control the number of slots
+  public hasThreeSlotsPerRow: boolean = false;
 
   constructor() {
     this.chartOptions = {
@@ -100,4 +104,15 @@ export class DashboardComponent {
     swapy.onSwap(({ data }) => console.log('data', data));
     console.log('Swapy initialized after view init');
   }
+
+  // Method to toggle the number of slots
+  numberOfSlotsPerRow: number = 1;
+
+toggleSlots() {
+  // Cycle through 1, 2, 3 slots
+  this.numberOfSlotsPerRow = this.numberOfSlotsPerRow % 3 + 1;
+  
+  console.log(`Layout updated: ${this.numberOfSlotsPerRow} slots per row`);
+  
+}
 }
