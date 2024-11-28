@@ -1,37 +1,40 @@
 <section class="layout">
   <div class="header"><app-navbar /></div>
-  <button (click)="toggleSlots()" class="toggle-button">
-    Toggle Slots ({{ numberOfSlotsPerRow }} {{ numberOfSlotsPerRow === 1 ? 'Slot' : 'Slots' }})
-  </button>
+
   <div class="leftSide"><app-aside class="" /></div>
   <div class="body">
     <section class="w-full h-full flex justify-center items-center">
       <div #container class="container">
+        <div class="card w-full flex justify-content-center items-end">
+          <p-selectButton
+            [options]="stateOptions"
+            [(ngModel)]="numberOfSlotsPerRow"
+            optionLabel="label"
+            optionValue="value"
+          />
+        </div>
         <div class="row second-row">
           <div class="slot c" data-swapy-slot="1"></div>
-          @if (numberOfSlotsPerRow >= 2) {
-            <div class="slot c" data-swapy-slot="2"></div>
-          }
-          @if (numberOfSlotsPerRow === 3) {
-            <div class="slot c" data-swapy-slot="extra-2"></div>
+          @if (numberOfSlotsPerRow() >= 2) {
+          <div class="slot c" data-swapy-slot="2"></div>
+          } @if (numberOfSlotsPerRow() === 3) {
+          <div class="slot c" data-swapy-slot="extra-2"></div>
           }
         </div>
         <div class="row second-row">
           <div class="slot c" data-swapy-slot="3"></div>
-          @if (numberOfSlotsPerRow >= 2) {
-            <div class="slot c" data-swapy-slot="4"></div>
-          }
-          @if (numberOfSlotsPerRow === 3) {
-            <div class="slot c" data-swapy-slot="extra-4"></div>
+          @if (numberOfSlotsPerRow() >= 2) {
+          <div class="slot c" data-swapy-slot="4"></div>
+          } @if (numberOfSlotsPerRow() === 3) {
+          <div class="slot c" data-swapy-slot="extra-4"></div>
           }
         </div>
         <div class="row second-row">
           <div class="slot c" data-swapy-slot="5"></div>
-          @if (numberOfSlotsPerRow >= 2) {
-            <div class="slot c" data-swapy-slot="6"></div>
-          }
-          @if (numberOfSlotsPerRow === 3) {
-            <div class="slot c" data-swapy-slot="extra-6"></div>
+          @if (numberOfSlotsPerRow() >= 2) {
+          <div class="slot c" data-swapy-slot="6"></div>
+          } @if (numberOfSlotsPerRow() === 3) {
+          <div class="slot c" data-swapy-slot="extra-6"></div>
           }
         </div>
       </div>

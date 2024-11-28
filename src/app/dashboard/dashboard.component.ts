@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   inject,
+  signal,
   ViewChild,
 } from '@angular/core';
 import {
@@ -19,7 +20,8 @@ import {
 import { createSwapy } from 'swapy';
 import { AsideComponent } from './component/aside/aside.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { FormsModule } from '@angular/forms';
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -33,7 +35,13 @@ export type ChartOptions = {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [AsideComponent, NavbarComponent, NgApexchartsModule],
+  imports: [
+    AsideComponent,
+    NavbarComponent,
+    NgApexchartsModule,
+    FormsModule,
+    SelectButtonModule,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,7 +56,11 @@ export class DashboardComponent {
 
   // Variable to control the number of slots
   public hasThreeSlotsPerRow: boolean = false;
-
+  stateOptions: any[] = [
+    { label: '1 Column', value: 1 },
+    { label: '2 Columns', value: 2 },
+    { label: '3 Columns', value: 3 },
+  ];
   constructor() {
     this.chartOptions = {
       series: [
@@ -106,13 +118,11 @@ export class DashboardComponent {
   }
 
   // Method to toggle the number of slots
-  numberOfSlotsPerRow: number = 1;
+  numberOfSlotsPerRow = signal<number>(1);
 
-toggleSlots() {
-  // Cycle through 1, 2, 3 slots
-  this.numberOfSlotsPerRow = this.numberOfSlotsPerRow % 3 + 1;
-  
-  console.log(`Layout updated: ${this.numberOfSlotsPerRow} slots per row`);
-  
-}
+  toggleSlots() {
+    // Cycle through 1, 2, 3 slots
+
+    console.log(`Layout updated: ${this.numberOfSlotsPerRow} slots per row`);
+  }
 }

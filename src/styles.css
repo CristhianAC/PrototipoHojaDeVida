@@ -1,3 +1,5 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,12 +48,11 @@ body {
 .second-row {
   display: flex;
   gap: 20px;
-/*   height: 100px; */
+  /*   height: 100px; */
   height: 33%;
 }
 
 .slot {
-
   flex: 1;
 }
 
@@ -84,8 +85,6 @@ body {
   padding: 0.5rem;
   overflow: hidden;
 }
-
-
 
 .handle {
   position: absolute;
